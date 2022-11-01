@@ -1,4 +1,4 @@
-Python-3.10.8
+Python
 flask
 requests
 simplejson==3.16.0
