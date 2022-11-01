@@ -1,5 +1,6 @@
 from flask import Flask, request
 import telegram
+import re
 from telebot.credentials import bot_token, bot_user_name,URL
 from telebot.ai import generate_smart_reply
 global bot
@@ -53,7 +54,7 @@ def set_webhook():
    else:
        return "webhook setup failed"
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
    return 'Empezo con el chat'
 
