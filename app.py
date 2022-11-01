@@ -43,9 +43,10 @@ def index():
 	else:
 		return "<h1>Bienvenido</h1>"
 
-@app.route('/setWebHook', methods=['GET','POST'])
+@app.route('/set_WebHook', methods=['GET','POST'])
 def setwebhook():
 	s = bot.setWebhook('{URL}{HOOK}'.format(URL=URL, HOOK=Token))
+	print(s)
 	if s:
 		return "webhook setup ok"
 	else:
