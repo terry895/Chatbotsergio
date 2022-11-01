@@ -2,9 +2,13 @@ from flask import Flask
 from flask import request
 from flask import Response
 import requests
+import telegram
+
+global bot
 
 Token = "5436833488:AAEySERdTwwKIqt-7gYDvZAEDnCJ9NWymgI"
 URL = "https://api.telegram.org/bot"
+bot = telegram.Bot(token=Token)
 
 app = Flask(__name__)
 
@@ -39,5 +43,13 @@ def index():
 	else:
 		return "<h1>Bienvenido</h1>"
 
+@app.route('/setWebHook', methods=['GET','POST'])
+def setwebhook():
+	s = bot.setWebhook('{URL}{HOOK}'.format(URL=URL, HOOK=Token))
+	if s:
+		return "webhook setup ok"
+	else:
+		return "webhook setup failed"	
+		
 if __name__ =='__main__':
 	app.run(debug=True,port=8080,host="0.0.0.0")
