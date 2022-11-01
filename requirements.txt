@@ -1,6 +1,7 @@
 flask
 requests
 simplejson==3.16.0
+gunicorn
 python-telegram-bot
 python-telegram-bot[passport]
 python-telegram-bot[socks]
